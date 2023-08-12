@@ -18,7 +18,7 @@ class ContactsController < ApplicationController
 
   def update
     @contact.update(contact_params)
-    return render json: { message: 'Contato atualizado' }, status: :ok if @contact.valid?
+    return render json: { message: 'Contato atualizado com sucesso' }, status: :ok if @contact.valid?
 
     render json: { error: 'Erro ao realizar a atualização' }, status: :unprocessable_entity
   end
