@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_12_074023) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_12_110005) do
   create_table "addresses", force: :cascade do |t|
     t.integer "contact_id", null: false
     t.string "street"
@@ -22,6 +22,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_12_074023) do
     t.string "country"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "neighborhood"
     t.index ["contact_id"], name: "index_addresses_on_contact_id"
   end
 
@@ -52,6 +53,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_12_074023) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
+    t.string "auth_token"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

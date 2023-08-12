@@ -6,5 +6,5 @@ class Address < ApplicationRecord
 
   accepts_nested_attributes_for :coordinate
 
-  validates :street, :number, :zip_code, :city, :uf, presence: true
+  validates :street, :number, :zip_code, :city, :uf, :neighborhood, presence: true
 end
