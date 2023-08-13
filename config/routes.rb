@@ -7,5 +7,6 @@ Rails.application.routes.draw do
   resources :users
   resources :contacts
 
-  get '/search-address/:cep', to: 'adresses#search_address'
+  get '/search-address/:cep', to: 'addresses#search_address'
+  get '/search-text/:address', to: 'addresses#search_text'
 end
