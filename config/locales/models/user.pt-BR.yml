@@ -1,0 +1,29 @@
+pt-BR:
+  activerecord:
+    models:
+      user: 'Usuário'
+    attributes:
+      user:
+        name: 'Nome'
+        email: 'Email'
+        password: 'Senha'
+        password_confirmation: 'Confirme sua senha'
+    errors:
+      models:
+        user:
+          attributes:
+            name:
+              blank: 'Campo nome em branco'
+            email:
+              blank: 'Campo email em branco'
+              invalid: 'E-mail inválido'
+              taken: 'E-mail já em uso'
+            password:
+              confirmation: 'Senhas não coincidem'
+    message:
+      user_created: 'Usuário criado com sucesso'
+      user_fail: 'Falha ao criar o usuário'
+      user_update: 'Usuário atualizado com sucesso'
+      user_update_fail: 'Falha ao atualizar o usuário'
+      user_destroy: 'Usuário excluído com sucesso'
+      user_destroy_fail: 'Falha ao excluir o usuário'

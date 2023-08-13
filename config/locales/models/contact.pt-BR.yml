@@ -1,0 +1,29 @@
+pt-BR:
+  activerecord:
+    models:
+      contact: 'Contato'
+    attributes:
+      contact:
+        name: 'Nome'
+        cpf: 'CPF'
+        phone: 'Telefone'
+    errors:
+      models:
+        contact:
+          attributes:
+            name:
+              blank: 'Campo nome em branco'
+            cpf:
+              blank: 'Campo CPF em branco'
+              taken: 'CPF já cadastrado'
+            phone:
+              blank: 'Campo telefone em branco'
+            user:
+              blank: "Usuário deve existir"
+    message:
+      contact_success: 'Contato criado com sucesso'
+      contact_fail: 'Erro ao criar o contato'
+      contact_update: 'Contato atualizado com sucesso'
+      contact_update_fail: 'Falha ao atualizar o contato'
+      contact_destroy: 'Contato excluído com sucesso'
+      contact_destroy_fail: 'Falha ao excluir o contato'

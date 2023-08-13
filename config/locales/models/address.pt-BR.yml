@@ -1,0 +1,29 @@
+pt-BR:
+  activerecord:
+    models:
+      address: "Endereço"
+    attributes:
+      address:
+        uf: "Estado"
+        city: "Cidade"
+        street: "Rua"
+        cep: "CEP"
+        number: "Número"
+        neighborhood: "Bairro"
+    errors:
+      models:
+        address:
+          attributes:
+            uf:
+              blank: "Campo estado em branco"
+            city:
+              blank: "Campo cidade em branco"
+            street:
+              blank: "Campo rua em branco"
+            cep:
+              blank: "Campo CEP em branco"
+            number:
+              blank: "Campo número em branco"
+            neighborhood:
+              blank: "Campo bairro em branco"
+          not_found: 'Endereço não encontrado'

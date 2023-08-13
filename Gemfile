@@ -32,6 +32,8 @@ gem 'faraday'
 
 gem 'dotenv-rails'
 
+gem 'i18n', '~> 1.14', '>= 1.14.1'
+
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem 'rack-cors'
 

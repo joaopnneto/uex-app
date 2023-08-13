@@ -10,24 +10,24 @@ class ContactsController < ApplicationController
   end
 
   def create
-    @contact = Contact.create(contact_params.merge(user_id: 1))
-    return render json: { message: 'Contato criado com sucesso' }, status: :created if @contact.valid?
+    @contact = Contact.create(contact_params)
+    return render json: { message: I18n.t('activerecord.message.contact_success') }, status: :created if @contact.valid?
 
     render json: { error: @contact.errors }, status: :unprocessable_entity
   end
 
   def update
     @contact.update(contact_params)
-    return render json: { message: 'Contato atualizado com sucesso' }, status: :ok if @contact.valid?
+    return render json: { message: I18n.t('activerecord.message.contact_update') }, status: :ok if @contact.valid?
 
-    render json: { error: 'Erro ao realizar a atualização' }, status: :unprocessable_entity
+    render json: { error: I18n.t('activerecord.message.contact_update_fail') }, status: :unprocessable_entity
   end
 
   def destroy
     @contact.destroy
-    return render json: { error: 'Erro ao realizar a exclusão' }, status: :unprocessable_entity if @contact.persisted?
+    return render json: { error: I18n.t('activerecord.message.contact_destroy_fail') }, status: :unprocessable_entity if @contact.persisted?
 
-    render json: { message: 'Contato excluído com sucesso' }, status: :ok
+    render json: { message: I18n.t('activerecord.message.contact_destroy') }, status: :ok
   end
 
   private
@@ -38,7 +38,7 @@ class ContactsController < ApplicationController
 
   def contact_params
     params.permit(
-      :name, :cpf, :phone,
+      :name, :cpf, :phone, :user_id,
       address_attributes: [:street, :number, :complement,
                            :neighborhood, :zip_code, :city, :uf, { coordinate_attributes: %i[latitude longitude] }]
     )

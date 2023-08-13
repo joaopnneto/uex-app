@@ -7,16 +7,16 @@ class UsersController < ApplicationController
 
   def update
     @user.update(user_params) if @user.valid_password?(params['password'])
-    return render json: { message: 'Usuário atualizado com sucesso' }, status: :ok if @user.valid?
+    return render json: { message: I18n.t('activerecord.message.user_update') }, status: :ok if @user.valid?
 
-    render json: { error: 'Erro ao atualizar os dados' }, status: :unprocessable_entity
+    render json: { error: I18n.t('activerecord.message.user_update_fail') }, status: :unprocessable_entity
   end
 
   def destroy
     @user.destroy if @user.valid_password?(params['password'])
-    return render json: { error: 'Erro ao realizar a exclusão' }, status: :unprocessable_entity if @user.persisted?
+    return render json: { error: I18n.t('activerecord.message.user_destroy_fail') }, status: :unprocessable_entity if @user.persisted?
 
-    render json: { message: 'Usuário excluído com sucesso' }, status: :ok
+    render json: { message: I18n.t('activerecord.message.user_destroy') }, status: :ok
   end
 
   private
