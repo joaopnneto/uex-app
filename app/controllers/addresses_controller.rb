@@ -1,7 +1,7 @@
 class AddressesController < ApplicationController
   def search_address
     result = ::Addresses::SearchService.new(params['cep']).call
-    return render json: build_response(result, build_address(result[:body])), status: :ok if result[:status].eql? 200
+    return render json: build_response(result, build_coordinate(result[:body])), status: :ok if result[:status].eql? 200
 
     render json: { error: I18n.t('activerecord.errors.not_found') }, status: :unprocessable_entity
   end
@@ -13,7 +13,7 @@ class AddressesController < ApplicationController
 
   private
 
-  def build_address(params)
+  def build_coordinate(params)
     ::Addresses::GeocodingService.new(concat_address(params)).call
   end
 

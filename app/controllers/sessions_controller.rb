@@ -2,7 +2,7 @@ class SessionsController < Devise::SessionsController
   before_action :find_user, only: %i[create]
 
   def create
-    if @user.valid_password?(params['password'])
+    if @user.valid? && @user.valid_password?(params['password'])
       sign_in @user
       render json: { current_user: @user }, status: :created
     else

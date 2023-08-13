@@ -10,7 +10,7 @@ class ContactsController < ApplicationController
   end
 
   def create
-    @contact = Contact.create(contact_params)
+    @contact = Contact.create(contact_params.merge(user_id: 3))
     return render json: { message: I18n.t('activerecord.message.contact_success') }, status: :created if @contact.valid?
 
     render json: { error: @contact.errors }, status: :unprocessable_entity
@@ -40,7 +40,8 @@ class ContactsController < ApplicationController
     params.permit(
       :name, :cpf, :phone, :user_id,
       address_attributes: [:street, :number, :complement,
-                           :neighborhood, :zip_code, :city, :uf, { coordinate_attributes: %i[latitude longitude] }]
+                           :neighborhood, :zip_code, :city, :uf,
+                           { coordinate_attributes: %i[latitude longitude] }]
     )
   end
 end

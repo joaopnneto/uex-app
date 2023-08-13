@@ -11,6 +11,9 @@ class Addresses::GeocodingService < ApplicationService
   private
 
   def build_location(params)
-    JSON.parse(params)['results'][0]['geometry']['location']
+    response = JSON.parse(params)
+    return response if response['status'].include?('ZERO_RESULTS')
+
+    response['results'][0]['geometry']['location']
   end
 end
