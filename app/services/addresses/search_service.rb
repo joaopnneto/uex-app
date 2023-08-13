@@ -15,7 +15,7 @@ class Addresses::SearchService < ApplicationService
   def build_response(params)
     {
       status: params.status,
-      body: params.body
+      body: JSON.parse(params.body)
     }
   end
 end
