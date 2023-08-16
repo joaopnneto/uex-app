@@ -1,6 +1,6 @@
 class Addresses::GeocodingService < ApplicationService
   def initialize(params)
-    @address = params
+    @address = params.parameterize
   end
 
   def call

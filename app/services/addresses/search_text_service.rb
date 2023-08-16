@@ -1,6 +1,6 @@
 class Addresses::SearchTextService < ApplicationService
   def initialize(params)
-    @address = params
+    @address = params.parameterize
   end
 
   def call
