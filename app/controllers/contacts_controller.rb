@@ -2,15 +2,16 @@ class ContactsController < ApplicationController
   before_action :contact, only: %i[show update destroy]
 
   def index
-    render json: Contact.all
+    render json: Contact.where('user_id = ?', current_user.id), include: %i[coordinate]
   end
 
   def show
-    render json: @contact
+    render json: @contact, include: %i[address coordinate]
   end
 
   def create
-    @contact = Contact.create(contact_params.merge(user_id: 3))
+    binding.pry
+    @contact = Contact.create(contact_params.merge(user_id: current_user.id))
     return render json: { message: I18n.t('activerecord.message.contact_success') }, status: :created if @contact.valid?
 
     render json: { error: @contact.errors }, status: :unprocessable_entity

@@ -14,7 +14,8 @@ class UsersController < ApplicationController
 
   def destroy
     @user.destroy if @user.valid_password?(params['password'])
-    return render json: { error: I18n.t('activerecord.message.user_destroy_fail') }, status: :unprocessable_entity if @user.persisted?
+    return render json: { error: I18n.t('activerecord.message.user_destroy_fail') },
+                  status: :unprocessable_entity if @user.persisted?
 
     render json: { message: I18n.t('activerecord.message.user_destroy') }, status: :ok
   end

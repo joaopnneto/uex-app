@@ -16,14 +16,14 @@ class User < ApplicationRecord
 
   private
 
+  def authenticate_token
+    self.auth_token ||= generate_user_token
+  end
+
   def generate_user_token
     loop do
       token = Devise.friendly_token
       break token unless User.exists?(auth_token: token)
     end
-  end
-
-  def authenticate_token
-    self.auth_token ||= generate_user_token
   end
 end
