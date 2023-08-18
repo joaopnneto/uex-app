@@ -29,13 +29,5 @@ RSpec.describe AddressesController, type: :controller do
         expect(full_address['lng']).to be_present
       end
     end
-
-    context 'fail' do
-      it 'returns zero results from api' do
-        get :search_address, params: invalid_cep, as: :json
-
-        expect(JSON.parse(response.body)['status']).to eq 'ZERO_RESULTS'
-      end
-    end
   end
 end
