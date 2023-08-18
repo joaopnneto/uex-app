@@ -27,3 +27,4 @@ pt-BR:
       user_update_fail: 'Falha ao atualizar o usuário'
       user_destroy: 'Usuário excluído com sucesso'
       user_destroy_fail: 'Falha ao excluir o usuário'
+      user_session_fail: 'Senha incorreta ou Usuário inexistente'

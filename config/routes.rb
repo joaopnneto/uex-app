@@ -9,4 +9,6 @@ Rails.application.routes.draw do
 
   get '/search-address/:cep', to: 'addresses#search_address'
   get '/search-text/:address', to: 'addresses#search_text'
+  put 'users', to: 'users#update'
+  delete 'users', to: 'users#destroy'
 end

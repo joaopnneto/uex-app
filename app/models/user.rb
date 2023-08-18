@@ -11,8 +11,10 @@ class User < ApplicationRecord
 
   validates :name, presence: true
   validates :email, presence: true, uniqueness: true
+  validates :password, confirmation: true, on: :update
+  validates :password_confirmation, presence: true, on: :update
 
-  before_save :authenticate_token
+  before_save :authenticate_token, :validate_password
 
   private
 
@@ -25,5 +27,9 @@ class User < ApplicationRecord
       token = Devise.friendly_token
       break token unless User.exists?(auth_token: token)
     end
+  end
+
+  def validate_password
+    self.password.eql? self.password_confirmation
   end
 end
