@@ -1,24 +1,32 @@
-# README
+Project created as a tech test for UEX.
+It is a contact book integrating with google maps API and VIACEP.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Dependencies
+- [Docker](https://docs.docker.com/get-docker/)
+- Ruby
 
-Things you may want to cover:
+### Version
+- Ruby 3.0.2
 
-* Ruby version
+### Environment
+Create a .env file in root directory using the .env.example file as a template.
 
-* System dependencies
+### Tests
+To run the unit tests, run the commands below:
+```bash
+$ bundle exec rspec
+```
 
-* Configuration
+### Backend
+###### 1 - Build the Docker image:
+```bash
+$ docker-compose build
+```
+###### 2 - After, just run
+```bash
+$ docker-compose up
+```
+###### 3 - Server will be available on port http://localhost:3000
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### Postman
+All endpoint will be available on a json called: UEX-API.postman_collection
